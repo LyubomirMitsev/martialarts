@@ -1,0 +1,42 @@
+==
+<?php
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+?>
+==
+<div class="main-header">
+    <div class="container clearfix">
+        <h1 class="logo">
+            Martial Arts
+        </h1>
+        <div class="main-nav">
+            <ul>
+                <li>
+                    <a href="{{ 'homepage'|page }}">Homepage</a>
+                </li>
+                <li>
+                    <a href="{{ 'martial-arts'|page }}">Martial Arts</a>
+                </li>
+                <li>
+                    <a href="{{ 'contact'|page }}">Contact</a>
+                </li>
+                <li>
+                    <a href="{{ 'login'|page }}">
+                        {% if not user %}
+                            Login
+                        {% else %}
+                            My Profile
+                        {% endif %}
+                    </a>
+                </li>
+                {% if user %}
+                    <li>
+                        <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

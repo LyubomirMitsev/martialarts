@@ -1,0 +1,6 @@
+plugin:
+    name: 'lyubomirmitsev.contact::lang.plugin.name'
+    description: 'lyubomirmitsev.contact::lang.plugin.description'
+    author: 'Lyubomir Mitsev'
+    icon: oc-icon-adjust
+    homepage: ''

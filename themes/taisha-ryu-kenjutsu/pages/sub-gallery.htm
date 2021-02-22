@@ -1,0 +1,41 @@
+title = "Sub gallery"
+url = "/gallery/:slug"
+layout = "static"
+is_hidden = 0
+
+[Gallery]
+idGallery = 0
+markup = "plugin"
+slug = "{{ :slug }}"
+==
+{% set markup = Gallery.galleryMarkup %}
+{% set gallery = Gallery.gallery %}
+{% if markup == "plugin" %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8" style="margin: auto;">
+				<div class="gallery-container">
+					<h3 style="text-align: center;">{{gallery.name}}</h3><br/>
+					<div class="gallery_in_post owl-carousel owl-theme">
+						{% for image in gallery.images %}
+						<div class="item">
+							<img name="{{image.title}}" src="{{ image.path }}" alt="">
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		    <div class="col-md-12">
+    		    <ul class="gallery-images">
+    		        {% for image in gallery.images %}
+    		              <li>
+							  <img src="{{ image.thumb(250, 250, {'mode':'crop'}) }}" alt="" class="gallery-image-current" title="{{image.title}}">
+						  </li>
+    		        {% endfor %}
+		        </ul>
+		    </div>
+		</div>
+	</div>
+{%endif%}

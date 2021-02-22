@@ -1,0 +1,22 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    order:
+        label: taema.youtubegallery::lang.plugin.models.video.columns.order
+    title:
+        label: taema.youtubegallery::lang.plugin.models.video.columns.title
+        searchable: true
+    yt_watch:
+        label: taema.youtubegallery::lang.plugin.models.video.columns.yt_watch
+        searchable: true
+    published:
+        label: taema.youtubegallery::lang.plugin.models.video.columns.published
+        type: switch
+    created_at:
+        label: taema.youtubegallery::lang.common.created_at
+        type: datetime
+    updated_at:
+        label: taema.youtubegallery::lang.common.updated_at
+        type: datetime

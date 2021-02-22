@@ -1,0 +1,12 @@
+title = "Forum Channel"
+url = "/forum/channel/:slug"
+layout = "default"
+is_hidden = 0
+
+[forumChannel]
+slug = "{{ :slug }}"
+memberPage = "blog-category"
+topicPage = "blog-category"
+includeStyles = 1
+==
+{% component 'forumChannel' %}

@@ -1,0 +1,69 @@
+description = "Main Menu"
+
+[viewBag]
+
+[localePicker]
+forceUrl = 0
+
+[alternateHrefLangElements]
+==
+{% import _self as nav %}
+{% macro render_menu(items) %}
+{% import _self as nav %}
+{% for item in items %}
+{% if item.items %}
+<li role="presentation" class="nav-item dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'active' }}">
+    <a href="{{ item.url }}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ item.title }}</a>
+    <ul class="dropdown-menu">
+        {{ nav.render_menu(item.items) }}
+    </ul>
+</li>
+{% else %}
+<li role="presentation" class="nav-item {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'active' }}">
+    <a href="{{ item.url }}" class="nav-link">{{ item.title }}</a>
+</li>
+{% endif %}
+{% endfor %}
+{% endmacro %}
+<nav class="navbar navbar-expand-md mainmenu-area" {% if this.theme.stickymenu_js %}data-toggle="sticky-onscroll"{% endif %} style="background-color: black;">
+{% if this.theme.layout_container %}
+<div class="{{ this.theme.layout_container }}">
+{% else %}
+<div class="container">
+    {% endif %}
+    <a class="navbar-brand" href="/">
+        {% if this.theme.settings_brand_type == 'logo' and this.theme.settings_brand_logo is not empty %}
+        <img src="{{ this.theme.settings_brand_logo|media }}" alt="logo">
+        {% elseif this.theme.settings_brand_type == 'text' and this.theme.settings_brand_text is not empty %}
+        <div class="navbar-brand">{{ this.theme.settings_brand_text }}</div>
+        {% else %}
+        <img src="{{ 'assets/images/Taisha-Ryu-Kenjutsu-Mon.jpeg'|theme }}" alt="Taisha-Ryu-Kenjutsu-Mon">
+        {% endif %}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="lnr lnr-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="main-menu">
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+            <li role="presentation" class="nav-item {% if this.page.id == 'blog-blog' %}active{% endif %}">
+                <a href="{{ 'blog/blog'|page }}" class="nav-link">{{ 'Posts'|_ }}</a>
+            </li>
+            <li role="presentation" class="nav-item {% if this.page.id == 'about' %}active{% endif %}">
+                <a href="{{ 'about'|staticPage }}" class="nav-link">{{ 'About'|_ }}</a>
+            </li>
+            <li role="presentation" class="nav-item {% if this.page.id == 'contact' %}active{% endif %}">
+                <a href="{{ 'contact'|page }}" class="nav-link">{{ 'Contact Us'|_ }}</a>
+            </li>
+            <li role="presentation" class="nav-item {% if this.page.id == 'gallery' %}active{% endif %}">
+                <a href="{{ 'gallery'|page }}" class="nav-link">{{ 'Gallery'|_ }}</a>
+            </li>
+            <li role="presentation" class="nav-item {% if this.page.id == 'video' %}active{% endif %}">
+                <a href="{{ 'video'|page }}" class="nav-link">{{ 'Video'|_ }}</a>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-right">
+            {% component 'localePicker' %}{% component 'alternateHrefLangElements' %}
+        </form>
+    </div>
+</div>
+</nav>

@@ -1,0 +1,62 @@
+description = "Default Layout"
+
+[session]
+security = "all"
+
+[contactForm]
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+
+[mailSignup]
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<!DOCTYPE html>
+<html lang="{{ this.theme.site_locale }}">
+    <head>
+        {% partial "site/meta" %}
+        {% partial "site/css" %}
+    </head><!--/#head-->
+    <body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
+    
+        <!--Google Analytics -->
+        {{ this.theme.google_analytics|raw }}
+
+        <header id="header-wrap" class="header">
+            {% partial "site/top" %}
+            {% partial "site/nav" %}
+        </header><!--/#header-->
+            
+        <!-- Repeater -->
+        {repeater name="sections" groups="~/themes/ketikidis-clear/meta/blocks.yaml" tab="Blocks"}
+            {variable name="_dummy" type="text"}{/variable}
+        {/repeater}
+        
+        <!-- Render blocks -->
+            {% for section in sections %}
+                {% partial 'blocks/' ~ section._group data=section %}
+            {% endfor %}
+            
+            {% page %}
+    
+        <!-- Copyright -->
+        {% partial "site/copyright" %}
+    
+        <!-- Scroll to top -->
+        {% partial "site/scrolltop" %}
+        
+        <!-- Loader -->
+        {% partial "site/loader" %}
+    
+        <!-- Scripts -->
+        {% partial "site/scripts" %}
+        
+        {% component 'session' %}
+
+</body><!--/#body-->
+</html>

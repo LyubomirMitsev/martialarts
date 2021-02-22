@@ -1,0 +1,38 @@
+title = "Publications"
+url = "/publications/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "LyubomirMitsev\MartialArts\Models\Publication"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <h1>
+        {{ record.title }}
+    </h1>
+
+    <h3>
+        About the martial arts of:
+    </h3>
+
+    <ul>
+        {% for martialArt in record.martial_arts %}
+            <li>
+                <a href="/martialarts.october/martial-art/{{ martialArt.slug }}">{{ martialArt.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {{ record.content|raw }}
+
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

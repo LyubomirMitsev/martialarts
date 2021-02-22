@@ -1,0 +1,59 @@
+title = "Martial Art Example"
+url = "/martial-art/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "LyubomirMitsev\MartialArts\Models\MartialArt"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <h3>
+        {{ record.name }}
+    </h3>
+
+    <img src="{{ record.icon.thumb(200, auto) }}" alt="">
+
+    {{ record.description|raw }}
+
+    <h4>Gallery</h4>
+
+    <ul>
+        {% for image in record.gallery %}
+            <li>
+                <a href="{{ image.path }}">
+                    <img src="{{ image.thumb(200, {'mode': 'crop'}) }}" alt="">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h4>Publications</h4>
+
+    <ul>
+        {% for publication in record.publications %}
+            <li>
+                <a href="/martialarts.october/publications/{{ publication.slug }}">{{ publication.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h4>Masters</h4>
+
+    <ul>
+        {% for master in record.masters %}
+            <li>
+                <div>{{ master.full_name }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

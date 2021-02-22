@@ -1,0 +1,28 @@
+
+{% flash success %}
+    <p>{{ message }}</p>
+{% endflash %}
+
+<div id="result"></div>
+
+<!-- <ul>
+    {% for error in errors.all() %}
+        <li>{{ error }}</li>
+    {% endfor %}
+</ul> -->
+
+<form data-request="contactform::onSend">
+    <label>Your Name</label>
+    <input type="text" name="name" style="display: block; width: 100%;">
+    <!-- {{ errors.first('name') }} -->
+
+    <label>Your Email</label>
+    <input type="email" name="email" style="display: block; width: 100%;">
+    <!-- {{ errors.first('email') }} -->
+
+    <label>Your Message</label>
+    <textarea name="content" cols="30" rows="10" style="display: block; width: 100%;"></textarea>
+    <!-- {{ errors.first('content') }} -->
+
+    <button type="submit">Send</button>
+</form>

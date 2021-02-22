@@ -1,0 +1,81 @@
+items:
+    -
+        title: Posts
+        type: cms-page
+        code: ''
+        reference: blog/blog
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+                bul:
+                    title: ''
+                    url: ''
+                gre:
+                    title: ''
+                    url: ''
+                ita:
+                    title: ''
+                    url: ''
+                jap:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: About
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: about
+        replace: 1
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+                bul:
+                    title: ''
+                    url: ''
+                gre:
+                    title: ''
+                    url: ''
+                ita:
+                    title: ''
+                    url: ''
+                jap:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Contact Us'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: contact
+        replace: 1
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+                bul:
+                    title: ''
+                    url: ''
+                gre:
+                    title: ''
+                    url: ''
+                ita:
+                    title: ''
+                    url: ''
+                jap:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Main menu - Taisha ryu'

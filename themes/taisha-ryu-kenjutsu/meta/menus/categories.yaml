@@ -1,0 +1,28 @@
+items:
+    -
+        title: Categories
+        type: all-blog-categories
+        code: ''
+        cmsPage: blog/blog-category
+        replace: 1
+        viewBag:
+            locale:
+                de:
+                    title: ''
+                    url: ''
+                bul:
+                    title: ''
+                    url: ''
+                gre:
+                    title: ''
+                    url: ''
+                ita:
+                    title: ''
+                    url: ''
+                jap:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: Categories

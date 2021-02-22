@@ -1,0 +1,100 @@
+title = "Video"
+url = "/video"
+layout = "default"
+is_hidden = 0
+
+[Playlist]
+playlist = 1
+display_playlist_name = 1
+sort_by = "created_at"
+sort_direction = "asc"
+
+[Playlist Playlist2]
+playlist = 2
+display_title = 1
+display_playlist_name = 1
+sort_by = "order"
+sort_direction = "asc"
+==
+<div class="row">
+
+    <div class="col-md-6" style="margin: auto;">
+    
+        <h2>{{ 'Videos'|_ }}</h2>
+        
+        <h6>{{ 'YouTube Channel'|_ }}</h6>
+        
+        <div class="row" style="margin-bottom: 30px;">
+            <div class="col-md-1" style="margin: auto;">
+                <a href="https://www.youtube.com/user/CDRAMBUGEI" target="_blank">
+                    <img src="/storage/app/media/youtube.webp" />
+                </a>
+            </div>
+        </div>
+
+        <p>
+            {{ 'Even though RMP produces posters, DVDs and photos, RONIN MARTIAL PRODUCTION is also a YouTube channel (with more than 8,000 subscribers) dedicated to martial arts and Japanese culture.'|_ }}
+            {{ 'Registered on the best-known video platform on the web since 2010, it was not until March 2017 that the channel took another turn and sought greater development.'|_ }}
+            {{ 'It therefore doubles its production of videos and thus broadens its video themes (Nihon culture, BUDO archives, etc.)'|_ }}
+        </p>
+        <p>
+            {{ 'Its goal is to share, to discover the martial culture and all that surrounds it. Motivated people in their lives and practices.'|_ }}
+        </p>
+        <p>
+            {{ 'Share the passion for martial arts and video'|_ }}
+        </p>
+    
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8" style="margin: auto;">
+        <h2>{{ 'Some Videos'|_ }}</h2>
+        {% component 'Playlist' %}
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-6" style="margin: auto;">
+        <p>
+            {{ 'RONIN seeks to be rich and varied in its content and thus have a great openness.'|_ }}
+        </p>
+        <p>
+            {{ 'Discover all kinds of videos related to martial arts: martial tutorials, videos on Japanese culture, martial arts video archives as well as technical videos of masters, etc ...'|_ }}{{ 'as well as promotional videos on the CDRAM .'|_ }}
+        </p>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-8" style="margin: auto;">
+        {% if Playlist2.hasError %}
+            {% partial '@error' message="Video gallery is unavailable" %}
+        {% else %}
+
+    {% if display_playlist_name %}
+        <div class="row">
+            <div class="col-sm-12 text-center" style="padding-bottom: 30px">
+                <h2 class="playlist-name">{{ Playlist2.name }}</h2>
+            </div>
+        </div>
+    {% endif %}
+        {% for row in Playlist2.videos | batch(2) %}
+            <div class="row">
+                {% for video in row %}
+                    <div class="videoTitle">
+                        {% if Playlist2.property('display_title') %}
+                        <h3>{{ video.title }}</h3>
+                        {% endif %}
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.yt_watch }}" allowfullscreen></iframe>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>

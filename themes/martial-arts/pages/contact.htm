@@ -1,0 +1,14 @@
+title = "Contact"
+url = "/contact"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[JanVince\SmallContactForm\Components\SmallContactForm contactForm]
+==
+<h2>Contact Page</h2>
+
+{% component 'session' %}{% component 'contactForm' %}

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: taema.youtubegallery::lang.plugin.controllers.videos.name
+
+# Model Form Field configuration
+form: $/taema/youtubegallery/models/video/fields.yaml
+
+# Model Class name
+modelClass: Taema\Youtubegallery\Models\Video
+
+# Default redirect location
+defaultRedirect: taema/youtubegallery/videos
+
+# Create page
+create:
+    title: taema.youtubegallery::lang.plugin.controllers.videos.create.title
+    redirect: taema/youtubegallery/videos/update/:id
+    redirectClose: taema/youtubegallery/videos
+
+# Update page
+update:
+    title: taema.youtubegallery::lang.plugin.controllers.videos.update.title
+    redirect: taema/youtubegallery/videos
+    redirectClose: taema/youtubegallery/videos
+
+# Preview page
+preview:
+    title: Preview Video

@@ -1,0 +1,28 @@
+title = "Gallery"
+url = "/gallery"
+layout = "default"
+is_hidden = 0
+
+[Galleries]
+galleryOrder = "idDesc"
+results = 10
+markup = "plugin"
+galleryPage = "sub-gallery"
+==
+{% set markup = Galleries.galleryMarkup %}
+{% set galleries = Galleries.galleries %}
+{% if markup == "plugin" %}
+<div class="cp-gallery-masonry isotope">
+  <div class="isotope items">
+    {% for gallery in galleries %}
+      <div class="item">
+        <figure class="toGallery">
+          <img src="{{ gallery.images[0].path | resize(1000) }}" alt="{{Gallery.simpleGallery.name}}" /><i class="ion-android-arrow-forward"></i>
+          <h3>{{gallery.name}}</h3>
+          <a href="{{gallery.url}}"></a>
+        </figure>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,202 @@
+description = "Css"
+
+[viewBag]
+==
+<!-- Vendor CSS -->
+<link href="{{ [
+   'assets/vendor/bootstrap/css/bootstrap.min.css',
+   'assets/vendor/owl-carousel/css/owl.carousel.min.css',
+   'assets/vendor/owl-carousel/css/owl.theme.default.min.css',
+   'assets/vendor/magnific-popup/css/magnific-popup.css'
+   ]|theme }}" rel="stylesheet">
+
+<!-- Fonts -->
+{% if this.theme.fonts_googlefonts %}
+<link href="https://fonts.googleapis.com/css?family={{ this.theme.fonts_google_fontfamily|raw }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.fonts_fontawesome %}
+<link href="{{ 'assets/vendor/font-awesome/css/font-awesome.min.css'|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.fonts_lineicons %}
+<link href="{{ 'assets/vendor/line-icons/style.css'|theme }}" rel="stylesheet">
+{% endif %}
+<link href="{{ 'assets/css/styles.css'|theme }}" rel="stylesheet">
+
+<!-- Addon CSS -->
+{% if this.theme.animate_css %}
+<link href="{{ 'assets/vendor/animate/animate.css'|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.aos_js %}
+<link href="{{ 'assets/vendor/aos/css/aos.css'|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.normalize_css %}
+<link href="{{ 'assets/vendor/normalize/normalize.css'|theme }}" rel="stylesheet">
+{% endif %}
+
+<!-- Main SCSS -->
+<link href="{{ ['assets/scss/style.scss']|theme }}" rel="stylesheet">
+
+<style>
+    ul.navbar-nav li a {
+        color: #ecf0f1 !important;
+        font-size: 25px !important;
+    }
+    
+    ul.navbar-nav li.active a {
+        color: #FFBF00 !important;
+    }
+    
+    ul.navbar-nav li.active {
+        background-color: #ecf0f1;
+    }
+    
+    ul.sidebar-menu li[role="presentation"] a {
+        color: #9FE2BF;
+        font-size: 25px;
+    }
+    
+    ul.sidebar-menu li.active {
+        background-color: #ecf0f1;
+    }
+    
+    ul.sidebar-menu li.active a {
+        color: #FFBF00;
+    }
+    
+    ul.gallery-images {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: white;
+    }
+    
+    ul.gallery-images li {
+        display: inline;
+        margin: 5px;
+    }
+    
+    ul.gallery-images li img{
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    form#contact-form label,
+    div#scf-form-contactForm label,
+    button{
+        color: #9FE2BF;
+        font-size: x-large;
+        margin: 5px 0;
+    }
+    
+    textarea#contactForm-content{
+        height: 20em;    
+    }
+    
+    h6{
+        color: #9FE2BF;
+        font-size: x-large;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    h2{
+       color: #9FE2BF;
+       text-align: center; 
+    }
+        
+    p{
+        color: #9FE2BF;
+        font-size: x-large;
+    }
+    
+    div.videoTitle{
+        margin: auto;
+    }
+    
+    .video-wrapper {
+        position: relative;
+        padding-top: 25px;
+        margin-bottom: 15px;
+        height: 0;
+    }
+    
+    .video-wrapper.ratio-5-4 {padding-bottom: 80%;}
+    .video-wrapper.ratio-4-3 {padding-bottom: 70%;}
+    .video-wrapper.ratio-16-10 {padding-bottom: 62.5%;}
+    .video-wrapper.ratio-16-9 {padding-bottom: 56.25%;}
+    
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%!important;
+        height: 100%!important;
+    }
+    
+    .form-inline{
+        float: right;
+    }
+    
+    .form-inline button{
+        height: 56px;
+        margin-bottom: 24px;
+    }
+</style>
+
+<!-- Container Width -->
+{% if this.theme.layout_container == 'container' %}
+{% if this.theme.layout_container_width %}
+<style>
+@media (min-width: 1440px) {
+	.container {
+		max-width: {{ this.theme.layout_container_width }}px;
+	}
+}
+</style>
+{% endif %}
+{% endif %}
+
+<!-- Color SCSS -->
+{% if this.theme.styles_theme_color %}
+{% if this.theme.styles_theme_color == 'blue' %}
+<link href="{{ ['assets/scss/theme/color/_blue.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'lightblue' %}
+<link href="{{ ['assets/scss/theme/color/_lightblue.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'darkblue' %}
+<link href="{{ ['assets/scss/theme/color/_darkblue.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'green' %}
+<link href="{{ ['assets/scss/theme/color/_green.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'lightgreen' %}
+<link href="{{ ['assets/scss/theme/color/_lightgreen.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'yellow' %}
+<link href="{{ ['assets/scss/theme/color/_yellow.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'orange' %}
+<link href="{{ ['assets/scss/theme/color/_orange.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'red' %}
+<link href="{{ ['assets/scss/theme/color/_red.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'purple' %}
+<link href="{{ ['assets/scss/theme/color/_purple.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% if this.theme.styles_theme_color == 'custom' %}
+<link href="{{ ['assets/scss/theme/color/_custom.scss']|theme }}" rel="stylesheet">
+{% endif %}
+{% else %}
+<link href="{{ ['assets/scss/theme/color/_default.scss']|theme }}" rel="stylesheet">
+{% endif %}
+
+<!-- Core CSS -->
+{% styles %}
+
+<!-- Custom CSS -->
+{% if this.theme.custom_css %}
+<style>
+   {{ this.theme.custom_css }}
+</style>
+{% endif %}

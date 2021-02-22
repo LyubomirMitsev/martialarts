@@ -1,0 +1,35 @@
+[viewBag]
+==
+<?php
+use Illuminate\Support\Facades\Mail;
+
+function onSend(){
+    $vars = [
+       'name' => Input::get('name'),
+       'email' => Input::get('email'),
+       'cotent' => Input::get('content'),
+    ];
+    
+    dump($vars);
+    
+    Mail::sendTo('lyubomir.mitsev@gmail.com', 'csi.website::mail.contactform', $vars);
+
+    return true;
+}
+?>
+==
+<form id="contact-form">
+    <label>{{ 'Your Name'|_ }}</label>
+    <input type="text" name="name" required="required" style="display: block; width: 100%;">
+    <!-- {{ errors.first('name') }} -->
+
+    <label>{{ 'Your Email'|_ }}</label>
+    <input type="email" name="email" required="required" style="display: block; width: 100%;">
+    <!-- {{ errors.first('email') }} -->
+
+    <label>{{ 'Your Message'|_ }}</label>
+    <textarea name="content" required="required" cols="30" rows="20" style="display: block; width: 100%;"></textarea>
+    <!-- {{ errors.first('content') }} -->
+
+    <button type="submit" style="float: right;" data-request="contactform::onSend">{{ 'Send'|_ }}</button>
+</form>
