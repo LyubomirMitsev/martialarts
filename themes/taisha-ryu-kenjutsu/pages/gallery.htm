@@ -15,7 +15,7 @@ galleryPage = "sub-gallery"
 <div class="cp-gallery-masonry isotope">
   <div class="isotope items">
     {% for gallery in galleries %}
-      <div class="item">
+      <div class="item" style="width: 80%; margin: auto;">
         <figure class="toGallery">
           <img src="{{ gallery.images[0].path | resize(1000) }}" alt="{{Gallery.simpleGallery.name}}" /><i class="ion-android-arrow-forward"></i>
           <h3>{{gallery.name}}</h3>

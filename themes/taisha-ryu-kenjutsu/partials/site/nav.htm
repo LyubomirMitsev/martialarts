@@ -62,7 +62,13 @@ forceUrl = 0
             </li>
         </ul>
         <form class="navbar-form navbar-right">
-            {% component 'localePicker' %}{% component 'alternateHrefLangElements' %}
+            {{ form_open() }}
+    <select name="locale" data-request="" class="form-control">
+        {% for code, name in locales %}
+            <option value="{{ code }}" {{ code == activeLocale ? 'selected' }}>{{ name }}</option>
+        {% endfor %}
+    </select>
+{{ form_close() }}{% component 'alternateHrefLangElements' %}
         </form>
     </div>
 </div>

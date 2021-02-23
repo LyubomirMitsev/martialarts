@@ -1,8 +1,5 @@
 description = "Default Layout"
 
-[session]
-security = "all"
-
 [contactForm]
 
 [searchInput]
@@ -21,6 +18,9 @@ default = 0
     <head>
         {% partial "site/meta" %}
         {% partial "site/css" %}
+        
+        
+        
     </head><!--/#head-->
     <body class="page-{{ this.page.id }} layout-{{ this.page.layout }}">
     
@@ -56,7 +56,7 @@ default = 0
         <!-- Scripts -->
         {% partial "site/scripts" %}
         
-        {% component 'session' %}
+        
 
 </body><!--/#body-->
 </html>

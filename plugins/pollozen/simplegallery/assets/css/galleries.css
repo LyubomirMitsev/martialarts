@@ -10,13 +10,14 @@
   overflow: hidden;
   margin: 8px;
   min-width: 230px;
-  max-width: 315px;
+  max-width: 815px;
   width: 100%;
   color: #000000;
   font-size: 16px;
   line-height: 1.2em;
   text-align: center;
   font-weight: 300;
+  margin-left: 35%;
 }
 
 .toGallery *,

@@ -15,11 +15,6 @@ slug = "{{ :slug }}"
 displayEmpty = 1
 categoryPage = "blog/blog-category"
 
-[forumEmbedTopic]
-embedCode = ":slug"
-channelSlug = "blog-comments"
-memberPage = "blog/blog-post"
-
 [searchForm]
 resultPage = "blog-search"
 categoryFilter = 0
@@ -66,14 +61,4 @@ categoryFilter = 0
             {% endif %}
         </div>
     </div>
-    
-    {% if user %}
-        <div class="row" style="width: 70%; margin: auto;">
-                <div>
-                    <h2>Comments:</h2>
-                </div>
-                {% component 'forumEmbedTopic' %}
-        </div>
-    {% endif %}
-    
 </section>

@@ -100,11 +100,13 @@ galleryPage = "sub-gallery"
                     {% endif %}
                 </div>
                 <div class="blog-galleries">
+                    <h3>Galleries: </h3>
                     {% set markup = Galleries.galleryMarkup %}
                     {% set galleries = post.gallery %}
                     <div class="cp-gallery-masonry isotope">
                       <div class="isotope items">
                         {% for gallery in galleries %}
+                        <div class="row">
                           <div class="item">
                             <figure class="toGallery">
                               <img src="{{ gallery.images[0].path | resize(263) }}" alt="{{Gallery.simpleGallery.name}}" /><i class="ion-android-arrow-forward"></i>
@@ -112,6 +114,7 @@ galleryPage = "sub-gallery"
                               <a href="/gallery/{{ gallery.slug }}"></a>
                             </figure>
                           </div>
+                         </div>
                         {% endfor %}
                       </div>
                     </div>                    
